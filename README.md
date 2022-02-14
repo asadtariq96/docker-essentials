@@ -36,18 +36,22 @@
 
 ## Running Containers
 `docker container run <image>`
+
 `docker container run hello-world`
 
 ## Docker Image
 A Docker image is a file. An image never changes; you can not edit an existing file. Creating a new image happens by starting from a base image and adding new **layers** to it.
 
 **list all images**
+
 ` docker image ls`
 
 **delete image**
+
 `docker image rm <image-name>`
 
 **download image without running**
+
 `docker image pull <image-name>`
 
 This image file is built from an instructional file named **Dockerfile** that is parsed when you run `docker image build`.
@@ -67,44 +71,62 @@ Containers only contain that which is required to execute an application; and yo
 List all your running containers with  `docker container ls`
 
 **List all containers** 
+
 `docker container ls -a`
 
 **delete container**
+
 `docker container rm <container-name>`
+
 `docker container rm <container-id>`
+
 `docker container rm 3d4bab29dd67`
+
 `docker container rm 3d`
+
 `docker container rm id1 id2 id3`
 
 **delete all stopped containers**
+
 `docker container prune`
 
 **run container in the background, *detached*** 
+
 `docker container run -d <image-name>`
+
 `docker container run -d nginx`
 
 **stop running container**
+
 `docker container stop <container-name or container-id>`
 
 **forcefully delete container**
+
 `docker container rm --force <container>`
 
 **interact with container**
+
 `docker run -it ubuntu`
+
 - `-i` flag will instruct to pass the STDIN to the container
 - `-t` will create a tty
 
 **enter container by starting new process in it (container must be running)**
+
 `docker exec -it <container> bash`
 
 **automatically remove container after it has exited**
+
 `docker run -d --rm -it <image>`
 
 **attach to a running container**
+
 `docker attach <container>`
 
 **start container and give command to container**
+
 `docker run -d -it --name looper ubuntu sh -c 'while true; do date; sleep 1; done'`
+
 -   The first part,  `docker run -d`. Should be familiar by now, run container detached.
     
 -   Followed by  `-it`  is short for  `-i`  and  `-t`. Also familiar,  `-it`  allows you to interact with the container by using the command line.
@@ -140,6 +162,7 @@ docker build . -t hello-docker
 Now executing the application is as simple as running `docker run hello-docker`
 
 **CMD**
+
 This command will be executed when the container is run using `docker run`
 
 
